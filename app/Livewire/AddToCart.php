@@ -60,6 +60,12 @@ class AddToCart extends Component
                 weight: $this->weight
             )
         );
+
+        session()->flash("success", "Product added to cart successfully!");
+
+        $this->dispatch("cart-updated");
+
+        return redirect()->route("cart");
     }
 
     public function render()
