@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Actions\ValidateCartStock;
 use App\Contract\CartServiceInterface;
 use App\Models\User;
+use App\Services\RegionQueryService;
 use App\Services\SessionCartService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
@@ -24,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
             CartServiceInterface::class,
             SessionCartService::class
         );
+        $this->app->bind(RegionQueryService::class, RegionQueryService::class);
     }
 
     /**
